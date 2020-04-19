@@ -184,7 +184,7 @@ public class FragmentDownloadPerson extends Fragment implements VisitorAdaptor.O
 
     private void populateSpinner() {
         List<String> lables = new ArrayList<String>();
-
+//f
 
         for (int i = 0; i < personList.size(); i++) {
             lables.add(personList.get(i));
