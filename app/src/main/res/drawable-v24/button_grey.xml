@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="#FFFFFF"></solid>
+            <stroke android:width="0.6dp" android:color="@color/common_google_signin_btn_text_dark_default"/>
+            <corners android:radius="10sp"/>
+            <padding android:bottom="5sp" android:left="5sp" android:right="5sp" android:top="5sp"/>
+        </shape>
+    </item>
+
+</selector>

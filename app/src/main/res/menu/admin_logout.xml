@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group>
+
+        <item
+            android:id="@+id/admin_change_pass_btn"
+            android:title="Change password"/>
+        <item
+            android:id="@+id/admin_logout_btn"
+            android:title="Log out"/>
+
+
+    </group>
+    <!--<item-->
+        <!--android:id="@+id/admin_logout_btn"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="Log out"-->
+        <!--android:icon="@drawable/ic_exit_to_app_black_24dp"-->
+        <!--app:showAsAction="always" />-->
+
+</menu>

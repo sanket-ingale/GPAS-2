@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_admin_home"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/drawer_admin_track_user"
+            android:title="Track user" />
+
+        <item
+            android:id="@+id/drawer_admin_add_user"
+            android:title="Add user" />
+
+        <item android:title="Appointments">
+
+            <menu>
+                <item
+                    android:id="@+id/drawer_admin_all_appointments_person"
+                    android:title="     Concerned person" />
+                <item
+                    android:id="@+id/drawer_admin_all_appointments_status"
+                    android:title="     Status" />
+                <item
+                    android:id="@+id/drawer_admin_all_appointments_date"
+                    android:title="     Date" />
+
+            </menu>
+
+        </item>
+
+
+        <item android:title="Downloads">
+
+            <menu>
+                <item
+                    android:id="@+id/drawer_admin_downloads_person"
+                    android:title="     Concerned person" />
+                <item
+                    android:id="@+id/drawer_admin_downloads_status"
+                    android:title="     Status" />
+                <item
+                    android:id="@+id/drawer_admin_downloads_date"
+                    android:title="     Date" />
+
+            </menu>
+
+        </item>
+
+
+        <item
+            android:id="@+id/drawer_admin_about_us"
+            android:title="About us" />
+        <item
+            android:id="@+id/drawer_admin_help"
+            android:title="Help" />
+
+
+    </group>
+</menu>
