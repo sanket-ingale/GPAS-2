@@ -12,9 +12,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class VisitCardDialogSecurity  extends AppCompatDialogFragment {
+public class VisitCardDialogEmployee  extends AppCompatDialogFragment {
     private VisitorInfo visitorInfo;
-    private VisitCardDialogSecurity.VisitorCardDialogListener listener;
+    private VisitCardDialogEmployee.VisitorCardDialogListener listener;
 
     public void getObject(VisitorInfo v){
         this.visitorInfo=v;
@@ -27,29 +27,8 @@ public class VisitCardDialogSecurity  extends AppCompatDialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        final View view = inflater.inflate(R.layout.visit_card_security_dialog, null);
+        final View view = inflater.inflate(R.layout.visit_card_employee_dialog, null);
         TextView tv=view.findViewById(R.id.cardinfo);
-        Button startMeet= view.findViewById(R.id.startMeet);
-        Button endMeet= view.findViewById(R.id.endMeet);
-        if(!visitorInfo.getStartMeet().equals(null)){
-            startMeet.setEnabled(false);
-        }
-        if(!visitorInfo.getCloseMeet().equals(null)){
-            endMeet.setEnabled(false);
-        }
-        startMeet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "accept" +visitorInfo.getName(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        endMeet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "reschedule" +visitorInfo.getName(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
         tv.setText("Name - "+visitorInfo.getName()
                 +"\nEmail Id - "+visitorInfo.getEmail()
                 +"\nMobile Number - "+visitorInfo.getContact()
@@ -78,7 +57,7 @@ public class VisitCardDialogSecurity  extends AppCompatDialogFragment {
         super.onAttach(context);
 
         try {
-            listener = (VisitCardDialogSecurity.VisitorCardDialogListener) context;
+            listener = (VisitCardDialogEmployee.VisitorCardDialogListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString() +
                     " must implement VisitorCardDialogListener");

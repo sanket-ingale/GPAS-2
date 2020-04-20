@@ -23,5 +23,30 @@
         android:text="TextView"
         android:textAlignment="textStart"
         android:textSize="18sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
+        <Button
+            android:id="@+id/startMeet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_green"
+            android:text="Campus Entry" />
+
+        <Button
+            android:id="@+id/endMeet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_blue"
+            android:text="Campus Exit" />
+    </LinearLayout>
 </LinearLayout>
