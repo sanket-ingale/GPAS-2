@@ -8,19 +8,15 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class VisitorCardDialog extends AppCompatDialogFragment {
-
+public class VisitCardDialogSecurity  extends AppCompatDialogFragment {
     private VisitorInfo visitorInfo;
-    private VisitorCardDialogListener listener;
+    private VisitCardDialogSecurity.VisitorCardDialogListener listener;
 
-  public void getObject(VisitorInfo v){
-this.visitorInfo=v;
-  }
-
+    public void getObject(VisitorInfo v){
+        this.visitorInfo=v;
+    }
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
@@ -31,26 +27,6 @@ this.visitorInfo=v;
         LayoutInflater inflater = getActivity().getLayoutInflater();
         final View view = inflater.inflate(R.layout.visitor_card_dialog, null);
         TextView tv=view.findViewById(R.id.cardinfo);
-        Button accept= view.findViewById(R.id.accept);
-        Button reschedule= view.findViewById(R.id.reschedule);
-        if(visitorInfo.getStatus().equals("Approved")){
-            accept.setEnabled(false);
-            reschedule.setEnabled(false);
-
-        }
-        accept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "accept" +visitorInfo.getName(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        reschedule.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "reschedule" +visitorInfo.getName(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
         tv.setText("Name - "+visitorInfo.getName()
                 +"\nEmail Id - "+visitorInfo.getEmail()
                 +"\nMobile Number - "+visitorInfo.getContact()
@@ -74,13 +50,12 @@ this.visitorInfo=v;
 
         return builder.create();
     }
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
         try {
-            listener = (VisitorCardDialog.VisitorCardDialogListener) context;
+            listener = (VisitCardDialogSecurity.VisitorCardDialogListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString() +
                     " must implement VisitorCardDialogListener");
@@ -90,7 +65,4 @@ this.visitorInfo=v;
     public interface VisitorCardDialogListener {
         void applyTexts();
     }
-
 }
-
-

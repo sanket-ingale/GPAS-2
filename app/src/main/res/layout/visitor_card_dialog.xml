@@ -23,4 +23,32 @@
         android:text="TextView"
         android:textAlignment="textStart"
         android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/accept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_green"
+            android:text="Accept" />
+
+        <Button
+            android:id="@+id/reschedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_blue"
+            android:text="Reschedule" />
+    </LinearLayout>
+
 </LinearLayout>

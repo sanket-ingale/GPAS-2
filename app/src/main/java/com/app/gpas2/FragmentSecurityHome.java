@@ -105,7 +105,7 @@ public class FragmentSecurityHome extends Fragment implements VisitorAdaptor.OnV
     @Override
     public void onVisitorClick(int position) {
         VisitorInfo visitorInfo= visitorInfoList.get(position);
-        VisitorCardDialog visitorCardDialog = new VisitorCardDialog();
+        VisitCardDialogSecurity visitorCardDialog = new VisitCardDialogSecurity();
         visitorCardDialog.getObject(visitorInfo);
         visitorCardDialog.show(getFragmentManager(),"Visitor info dialog");
     }

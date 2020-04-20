@@ -169,7 +169,7 @@ List<VisitorInfo> visitorInfoList;
                                     }
                             }
                             VisitorInfo visitorInfo=visitorInfoList.get(0);
-                            VisitorCardDialog visitorCardDialog = new VisitorCardDialog();
+                            VisitCardDialogSecurity visitorCardDialog = new VisitCardDialogSecurity();
                             visitorCardDialog.getObject(visitorInfo);
                             visitorCardDialog.show(getFragmentManager(),"Visitor info dialog");
 

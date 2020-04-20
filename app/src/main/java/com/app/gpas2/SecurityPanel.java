@@ -40,7 +40,7 @@ public class SecurityPanel extends AppCompatActivity implements NavigationView.O
         FragmentSecurityScanQR.OnFragmentInteractionListener,
         FragmentHelp.OnFragmentInteractionListener,
         ChangePasswordDialog.ChangePasswordDialogListener,
-        VisitorCardDialog.VisitorCardDialogListener {
+        VisitCardDialogSecurity.VisitorCardDialogListener {
 
     private DrawerLayout drawer;
     private NavigationView navigationView;
