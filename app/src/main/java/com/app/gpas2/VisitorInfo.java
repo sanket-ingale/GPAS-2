@@ -6,34 +6,19 @@ public class VisitorInfo {
     private String Address;
     private String Email;
     private String Contact;
-    private String Gender;
+    private String Vehicle;
     private String Org;
+    private String intimDate;
     private String VDate;
     private String VTime;
-    private String LTime;
     private String ConcernPerson;
     private String Purpose;
     private String Status;
-    private String Vehicle;
-    public VisitorInfo(int id, String name, String address, String email, String contact, String vehicle, String org, String VDate, String VTime, String LTime, String concernPerson, String purpose, String status) {
-        this.id = id;
-        Name = name;
-        Address = address;
-        Email = email;
-        Contact = contact;
-//        Gender = gender;
-        Org = org;
-        this.VDate = VDate;
-        this.VTime = VTime;
-        this.LTime = LTime;
-        ConcernPerson = concernPerson;
-        Purpose = purpose;
-        Status = status;
-        Vehicle=vehicle;
-    }
+    private String approvingAuth;
+    private String startMeet;
+    private String closeMeet;
 
-    public String getVehicle() {
-        return Vehicle;
+    public VisitorInfo() {
     }
 
     public int getId() {
@@ -56,12 +41,16 @@ public class VisitorInfo {
         return Contact;
     }
 
-    public String getGender() {
-        return Gender;
+    public String getVehicle() {
+        return Vehicle;
     }
 
     public String getOrg() {
         return Org;
+    }
+
+    public String getIntimDate() {
+        return intimDate;
     }
 
     public String getVDate() {
@@ -70,10 +59,6 @@ public class VisitorInfo {
 
     public String getVTime() {
         return VTime;
-    }
-
-    public String getLTime() {
-        return LTime;
     }
 
     public String getConcernPerson() {
@@ -86,5 +71,36 @@ public class VisitorInfo {
 
     public String getStatus() {
         return Status;
+    }
+
+    public String getApprovingAuth() {
+        return approvingAuth;
+    }
+
+    public String getStartMeet() {
+        return startMeet;
+    }
+
+    public String getCloseMeet() {
+        return closeMeet;
+    }
+
+    public VisitorInfo(int id, String name, String address, String email, String contact, String vehicle, String org, String intimDate, String VDate, String VTime, String concernPerson, String purpose, String status, String approvingAuth, String startMeet, String closeMeet) {
+        this.id = id;
+        Name = name;
+        Address = address;
+        Email = email;
+        Contact = contact;
+        Vehicle = vehicle;
+        Org = org;
+        this.intimDate = intimDate;
+        this.VDate = VDate;
+        this.VTime = VTime;
+        ConcernPerson = concernPerson;
+        Purpose = purpose;
+        Status = status;
+        this.approvingAuth = approvingAuth;
+        this.startMeet = startMeet;
+        this.closeMeet = closeMeet;
     }
 }

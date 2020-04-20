@@ -29,12 +29,19 @@ this.visitorInfo=v;
         LayoutInflater inflater = getActivity().getLayoutInflater();
         final View view = inflater.inflate(R.layout.visitor_card_dialog, null);
         TextView tv=view.findViewById(R.id.cardinfo);
-        tv.setText("Name - "+visitorInfo.getName()+"\nEmail Id - "+visitorInfo.getEmail()
-                +"\nMobile Number - "+visitorInfo.getContact()+"\nVisit Date - "+visitorInfo.getVDate()
-                +"\nVisit Time - "+visitorInfo.getVTime()+"\nLeave Time - "+visitorInfo.getLTime()
-                +"\nConcerned Person - "+visitorInfo.getConcernPerson()+"\nVehicle Number - "+visitorInfo.getVehicle()
-                +"\nOrganization Name - "+visitorInfo.getOrg()+"\nPurpose of Meeting - "+visitorInfo.getPurpose()
-                +"\nStatus - "+visitorInfo.getStatus());
+        tv.setText("Name - "+visitorInfo.getName()
+                +"\nEmail Id - "+visitorInfo.getEmail()
+                +"\nMobile Number - "+visitorInfo.getContact()
+                +"\nVisit Date - "+visitorInfo.getVDate()
+                +"\nVisit Time - "+visitorInfo.getVTime()
+                +"\nConcerned Person - "+visitorInfo.getConcernPerson()
+                +"\nVehicle Number - "+visitorInfo.getVehicle()
+                +"\nOrganization Name - "+visitorInfo.getOrg()
+                +"\nPurpose of Meeting - "+visitorInfo.getPurpose()
+                +"\nStatus - "+visitorInfo.getStatus()
+                +"\nApproving Authority - "+visitorInfo.getApprovingAuth()
+                +"\nCampus Entry - "+visitorInfo.getStartMeet()
+                +"\nCampus Exit - "+visitorInfo.getCloseMeet());
         builder.setView(view)
                 .setNegativeButton("Close", new DialogInterface.OnClickListener() {
                     @Override

@@ -84,12 +84,15 @@ public class FragmentAdminStatus extends Fragment implements VisitorAdaptor.OnVi
                                             visitor.getString("contact"),
                                             visitor.getString("Vehicle"),
                                             visitor.getString("org"),
+                                            visitor.getString("intimatedate"),
                                             visitor.getString("vD"),
                                             visitor.getString("vT"),
-                                            visitor.getString("leaveT"),
                                             visitor.getString("conernP"),
                                             visitor.getString("purpose"),
-                                            visitor.getString("status")
+                                            visitor.getString("status"),
+                                            visitor.getString("approvingauth"),
+                                            visitor.getString("startmeet"),
+                                            visitor.getString("closemeet")
                                     ));
                                 }
                             }

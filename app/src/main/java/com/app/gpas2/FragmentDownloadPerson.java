@@ -118,12 +118,15 @@ public class FragmentDownloadPerson extends Fragment implements VisitorAdaptor.O
                                             visitor.getString("contact"),
                                             visitor.getString("Vehicle"),
                                             visitor.getString("org"),
+                                            visitor.getString("intimatedate"),
                                             visitor.getString("vD"),
                                             visitor.getString("vT"),
-                                            visitor.getString("leaveT"),
                                             visitor.getString("conernP"),
                                             visitor.getString("purpose"),
-                                            visitor.getString("status")
+                                            visitor.getString("status"),
+                                            visitor.getString("approvingauth"),
+                                            visitor.getString("startmeet"),
+                                            visitor.getString("closemeet")
                                     ));
                                 }
                             }
@@ -233,35 +236,43 @@ public class FragmentDownloadPerson extends Fragment implements VisitorAdaptor.O
 
 
             try {
-                sheet.addCell(new Label(0, 0, "Name", titleformat));
-                sheet.addCell(new Label(1, 0, "Address", titleformat));
-                sheet.addCell(new Label(2, 0, "Email Id", titleformat));
-                sheet.addCell(new Label(3, 0, "Contact No.", titleformat));
-                sheet.addCell(new Label(4, 0, "Vehicle No.", titleformat));
-                sheet.addCell(new Label(5, 0, "Organisation Name", titleformat));
-                sheet.addCell(new Label(6, 0, "Visit Date", titleformat));
-                sheet.addCell(new Label(7, 0, "Visit Time", titleformat));
-                sheet.addCell(new Label(8, 0, "Leave Time", titleformat));
-                sheet.addCell(new Label(9, 0, "Concern Person", titleformat));
-                sheet.addCell(new Label(10, 0, "Purpose", titleformat));
-                sheet.addCell(new Label(11, 0, "Status", titleformat));
+                sheet.addCell(new Label(0, 0, "Sr. No.", titleformat));
+                sheet.addCell(new Label(1, 0, "Name", titleformat));
+                sheet.addCell(new Label(2, 0, "Address", titleformat));
+                sheet.addCell(new Label(3, 0, "Email Id", titleformat));
+                sheet.addCell(new Label(4, 0, "Contact No.", titleformat));
+                sheet.addCell(new Label(5, 0, "Vehicle No.", titleformat));
+                sheet.addCell(new Label(6, 0, "Organisation Name", titleformat));
+                sheet.addCell(new Label(7, 0, "Intimation Date", titleformat));
+                sheet.addCell(new Label(8, 0, "Visit Date", titleformat));
+                sheet.addCell(new Label(9, 0, "Visit Time", titleformat));
+                sheet.addCell(new Label(10, 0, "Concern Person", titleformat));
+                sheet.addCell(new Label(11, 0, "Purpose", titleformat));
+                sheet.addCell(new Label(12, 0, "Status", titleformat));
+                sheet.addCell(new Label(13, 0, "Approving Authority", titleformat));
+                sheet.addCell(new Label(14, 0, "Campus Entry", titleformat));
+                sheet.addCell(new Label(15, 0, "Campus Exit", titleformat));
 
                 int nextRow = 1;
                 Iterator i = visitorInfoList.iterator();
                 while (i.hasNext()) {
                     VisitorInfo res = (VisitorInfo) i.next();
-                    sheet.addCell(new Label(0, nextRow, res.getName()));
-                    sheet.addCell(new Label(1, nextRow, res.getAddress()));
-                    sheet.addCell(new Label(2, nextRow, res.getEmail()));
-                    sheet.addCell(new Label(3, nextRow, res.getContact()));
-                    sheet.addCell(new Label(4, nextRow, res.getVehicle()));
-                    sheet.addCell(new Label(5, nextRow, res.getOrg()));
-                    sheet.addCell(new Label(6, nextRow, res.getVDate()));
-                    sheet.addCell(new Label(7, nextRow, res.getVTime()));
-                    sheet.addCell(new Label(8, nextRow, res.getLTime()));
-                    sheet.addCell(new Label(9, nextRow, res.getConcernPerson()));
-                    sheet.addCell(new Label(10, nextRow, res.getPurpose()));
-                    sheet.addCell(new Label(11, nextRow, res.getStatus()));
+                    sheet.addCell(new Label(0, nextRow, nextRow+""));
+                    sheet.addCell(new Label(1, nextRow, res.getName()));
+                    sheet.addCell(new Label(2, nextRow, res.getAddress()));
+                    sheet.addCell(new Label(3, nextRow, res.getEmail()));
+                    sheet.addCell(new Label(4, nextRow, res.getContact()));
+                    sheet.addCell(new Label(5, nextRow, res.getVehicle()));
+                    sheet.addCell(new Label(6, nextRow, res.getOrg()));
+                    sheet.addCell(new Label(7, nextRow, res.getIntimDate()));
+                    sheet.addCell(new Label(8, nextRow, res.getVDate()));
+                    sheet.addCell(new Label(9, nextRow, res.getVTime()));
+                    sheet.addCell(new Label(10, nextRow, res.getConcernPerson()));
+                    sheet.addCell(new Label(11, nextRow, res.getPurpose()));
+                    sheet.addCell(new Label(12, nextRow, res.getStatus()));
+                    sheet.addCell(new Label(13, nextRow, res.getApprovingAuth()));
+                    sheet.addCell(new Label(14, nextRow, res.getStartMeet()));
+                    sheet.addCell(new Label(15, nextRow, res.getCloseMeet()));
 
                     nextRow++;
                 }
