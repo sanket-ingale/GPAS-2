@@ -114,7 +114,7 @@ public class FragmentConcernedPersonHome extends Fragment implements VisitorAdap
     @Override
     public void onVisitorClick(int position) {
         VisitorInfo visitorInfo= visitorInfoList.get(position);
-        VisitorCardDialog visitorCardDialog = new VisitorCardDialog();
+        VisitCardDialogEmployee visitorCardDialog = new VisitCardDialogEmployee();
         visitorCardDialog.getObject(visitorInfo);
         visitorCardDialog.show(getFragmentManager(),"Visitor info dialog");
 

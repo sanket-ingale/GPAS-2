@@ -38,7 +38,7 @@ public class ConcernedPerson extends AppCompatActivity implements NavigationView
     FragmentConcernedPersonHome.OnFragmentInteractionListener,
     FragmentHelp.OnFragmentInteractionListener,
     ChangePasswordDialog.ChangePasswordDialogListener,
- VisitorCardDialog.VisitorCardDialogListener{
+        VisitCardDialogEmployee.VisitorCardDialogListener{
 
     private DrawerLayout drawer;
     private NavigationView navigationView;
