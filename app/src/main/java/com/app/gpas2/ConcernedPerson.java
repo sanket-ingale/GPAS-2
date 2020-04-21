@@ -35,17 +35,18 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 public class ConcernedPerson extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-    FragmentConcernedPersonHome.OnFragmentInteractionListener,
-    FragmentHelp.OnFragmentInteractionListener,
-    ChangePasswordDialog.ChangePasswordDialogListener,
-        VisitCardDialogEmployee.VisitorCardDialogListener{
+        FragmentConcernedPersonHome.OnFragmentInteractionListener,
+        FragmentHelp.OnFragmentInteractionListener,
+        FragmentConcernedPersonForm.OnFragmentInteractionListener,
+        ChangePasswordDialog.ChangePasswordDialogListener,
+        VisitCardDialogEmployee.VisitorCardDialogListener {
 
     private DrawerLayout drawer;
     private NavigationView navigationView;
     private TextView toolbarTitle;
     private FirebaseUser user;
     private SharedPreferences sharedPreferences;
-    private String server_url_insert=IPString.UrlPass;
+    private String server_url_insert = IPString.UrlPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +57,7 @@ public class ConcernedPerson extends AppCompatActivity implements NavigationView
 
         drawer = findViewById(R.id.concerned_person_drawer_layout);
 
-        sharedPreferences=getSharedPreferences("login",MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("login", MODE_PRIVATE);
         toolbarTitle = findViewById(R.id.concerned_person_toolbar_title);
 
         navigationView = findViewById(R.id.concerned_person_drawer_view);
@@ -84,6 +85,10 @@ public class ConcernedPerson extends AppCompatActivity implements NavigationView
         switch (item.getItemId()) {
             case R.id.drawer_concerned_person_home:
                 selectedFragment = new FragmentConcernedPersonHome();
+                break;
+
+            case R.id.drawer_concerned_person_form:
+                selectedFragment = new FragmentConcernedPersonForm();
                 break;
 
             case R.id.drawer_concerned_person_help:
@@ -125,7 +130,7 @@ public class ConcernedPerson extends AppCompatActivity implements NavigationView
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
 
-        if (item.getItemId()== R.id.concerned_person_logout_btn) {
+        if (item.getItemId() == R.id.concerned_person_logout_btn) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
             builder.setMessage("Do you want to log out?")
@@ -135,9 +140,9 @@ public class ConcernedPerson extends AppCompatActivity implements NavigationView
                         public void onClick(DialogInterface dialog, int which) {
 //                            FirebaseAuth.getInstance().signOut();
 
-                            sharedPreferences.edit().putBoolean("logged",false).apply();
-                            sharedPreferences.edit().putString("user","").apply();
-                            sharedPreferences.edit().putString("name","").apply();
+                            sharedPreferences.edit().putBoolean("logged", false).apply();
+                            sharedPreferences.edit().putString("user", "").apply();
+                            sharedPreferences.edit().putString("name", "").apply();
 
                             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                             startActivity(intent);
@@ -153,8 +158,8 @@ public class ConcernedPerson extends AppCompatActivity implements NavigationView
                     });
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
-        } else if (item.getItemId()== R.id.concerned_person_change_pass_btn) {
-            ChangePasswordDialog changePasswordDialog =  new ChangePasswordDialog();
+        } else if (item.getItemId() == R.id.concerned_person_change_pass_btn) {
+            ChangePasswordDialog changePasswordDialog = new ChangePasswordDialog();
             changePasswordDialog.show(getSupportFragmentManager(), "Change Password Dialog");
         }
 
@@ -169,28 +174,27 @@ public class ConcernedPerson extends AppCompatActivity implements NavigationView
     @Override
     public void applyTexts(String currentPassword, final String newPassword) {
         try {
-            submitData(currentPassword,newPassword);
+            submitData(currentPassword, newPassword);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }
 
-    private void submitData(String s1,String s2) throws UnsupportedEncodingException {
-        String sOld= URLEncoder.encode(s1,"UTF8");
-        String sNew= URLEncoder.encode(s2,"UTF8");
-        String sName= URLEncoder.encode(sharedPreferences.getString("name",""),"UTF8");
+    private void submitData(String s1, String s2) throws UnsupportedEncodingException {
+        String sOld = URLEncoder.encode(s1, "UTF8");
+        String sNew = URLEncoder.encode(s2, "UTF8");
+        String sName = URLEncoder.encode(sharedPreferences.getString("name", ""), "UTF8");
 
-        String url=server_url_insert+ "?old="+sOld+"&new="+sNew+"&name="+sName+"";
-        StringRequest stringRequest= new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        String url = server_url_insert + "?old=" + sOld + "&new=" + sNew + "&name=" + sName + "";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
-                    JSONObject jsonObject=new JSONObject(response);
-                    if(jsonObject.getString("message").equals("success")) {
-                        Toast.makeText(getApplicationContext(),"Password changed successfully!!" , Toast.LENGTH_LONG).show();
-                    }
-                    else{
-                        Toast.makeText(getApplicationContext(),"Incorrect old password!!" , Toast.LENGTH_LONG).show();
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getString("message").equals("success")) {
+                        Toast.makeText(getApplicationContext(), "Password changed successfully!!", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Incorrect old password!!", Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                 }
@@ -201,7 +205,7 @@ public class ConcernedPerson extends AppCompatActivity implements NavigationView
             }
         }
         );
-        RequestQueue requestQueue= Volley.newRequestQueue(ConcernedPerson.this);
+        RequestQueue requestQueue = Volley.newRequestQueue(ConcernedPerson.this);
         requestQueue.add(stringRequest);
     }
 
