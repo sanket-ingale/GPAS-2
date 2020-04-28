@@ -137,8 +137,8 @@ public class LoginActivity extends AppCompatActivity {
 
 //    public void login(View view) {
 //        //Intent intent = new Intent(this, MainActivity.class);
-////        mProLogin.setMessage("Logging in Please Wait...");
-////        mProLogin.show();
+//        mProLogin.setMessage("Logging in Please Wait...");
+//        mProLogin.show();
 //
 //        String user = username.getText().toString();
 //        String pass = password.getText().toString();

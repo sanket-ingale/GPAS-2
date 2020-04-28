@@ -183,12 +183,13 @@ public class FragmentDownloadDate extends Fragment implements VisitorAdaptor.OnV
         //adding our stringrequest to queue
         Volley.newRequestQueue(getActivity()).add(stringRequest);
     }
-public boolean validateDate(String s) throws Exception{
-    Date testDate=new SimpleDateFormat("yyyy-mm-dd").parse(s);
-    Date startDate =new SimpleDateFormat("yyyy-mm-dd").parse(sDateStart);
-    Date endDate=new SimpleDateFormat("yyyy-mm-dd").parse(sDateEnd);
 
-    return !(testDate.before(startDate) || testDate.after(endDate));
+    public boolean validateDate(String s) throws Exception{
+
+            Date testDate=new SimpleDateFormat("yyyy-mm-dd").parse(s);
+            Date startDate =new SimpleDateFormat("yyyy-mm-dd").parse(sDateStart);
+            Date endDate=new SimpleDateFormat("yyyy-mm-dd").parse(sDateEnd);
+            return !(testDate.before(startDate) || testDate.after(endDate));
 }
     @Override
     public void onVisitorClick(int position) {
@@ -197,8 +198,7 @@ public boolean validateDate(String s) throws Exception{
         visitorCardDialog.getObject(visitorInfo);
         visitorCardDialog.show(getFragmentManager(),"Visitor info dialog");
     }
-    public void createExcelSheet()
-    {
+    public void createExcelSheet()    {
         String currentDateTimeString = java.text.DateFormat.getDateTimeInstance().format(new Date());
         String Fnamexls="Visitor data "+currentDateTimeString+ ".xls";
         File sdCard = Environment.getExternalStorageDirectory();

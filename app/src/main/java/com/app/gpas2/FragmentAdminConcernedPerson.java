@@ -135,7 +135,6 @@ public class FragmentAdminConcernedPerson extends Fragment implements VisitorAda
 
                                 //getting product object from json array
                                 JSONObject personJson = array.getJSONObject(i);
-
                                     personList.add(personJson.getString("name"));
                                 }
                             populateSpinner();
@@ -151,7 +150,7 @@ public class FragmentAdminConcernedPerson extends Fragment implements VisitorAda
                     }
                 });
 
-        //adding our stringrequest to queue
+        //adding our string request to queue
         Volley.newRequestQueue(getActivity()).add(stringRequest);
 
     }

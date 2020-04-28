@@ -1,5 +1,6 @@
 package com.app.gpas2;
 
+import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -30,6 +31,8 @@ EditText nameET,departmentET,emailET,passwordET;
 Spinner designationSP;
 Button addUser;
 String server_url_insert=IPString.UrlInsert;
+private ProgressDialog dialog;
+
     public FragmentAdminAddUser() {
         // Required empty public constructor
     }
@@ -44,7 +47,10 @@ String server_url_insert=IPString.UrlInsert;
         emailET=v.findViewById(R.id.email);
         passwordET=v.findViewById(R.id.password);
         designationSP=v.findViewById(R.id.designation);
+        dialog = new ProgressDialog(getContext());
+
         addUser=v.findViewById(R.id.AddUser);
+
         addUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +64,11 @@ String server_url_insert=IPString.UrlInsert;
         return v;
     }
     private void submitData() throws UnsupportedEncodingException {
+
+        dialog.setTitle("Adding User");
+        dialog.setMessage("Please wait ...");
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
         String sName= URLEncoder.encode(nameET.getText().toString(),"UTF8");
         String sDepartment= URLEncoder.encode(departmentET.getText().toString(),"UTF8");
         String sDesignation= URLEncoder.encode(String.valueOf(designationSP.getSelectedItem()),"UTF8");
@@ -71,14 +82,17 @@ String server_url_insert=IPString.UrlInsert;
                 try {
                     JSONObject jsonObject=new JSONObject(response);
                     if(jsonObject.getString("message").equals("success")) {
+                        dialog.dismiss();
                         Toast.makeText(getActivity(),"User added successfully!!" , Toast.LENGTH_LONG).show();
                     }
                     else{
+                        dialog.dismiss();
                         Toast.makeText(getActivity(),"Something went wrong!!" , Toast.LENGTH_LONG).show();
 
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    dialog.dismiss();
                     Toast.makeText(getActivity(),"e"+e.toString(),Toast.LENGTH_LONG).show();
 
                 }
@@ -86,6 +100,7 @@ String server_url_insert=IPString.UrlInsert;
         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        dialog.dismiss();
                         Toast.makeText(getActivity(),"err"+error.toString(),Toast.LENGTH_LONG).show();
                     }
                 }
