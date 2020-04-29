@@ -179,6 +179,22 @@ this.visitorInfo=v;
                     }
                 }
                 );
+                stringRequest.setRetryPolicy(new RetryPolicy() {
+                    @Override
+                    public int getCurrentTimeout() {
+                        return 50000;
+                    }
+
+                    @Override
+                    public int getCurrentRetryCount() {
+                        return 50000;
+                    }
+
+                    @Override
+                    public void retry(VolleyError error) throws VolleyError {
+
+                    }
+                });
                 RequestQueue requestQueue= Volley.newRequestQueue(getContext());
                 requestQueue.add(stringRequest);
 
