@@ -112,9 +112,10 @@ private ProgressDialog dialog;
         passwordET.setText("");
         departmentET.setText("");
         designationSP.setSelection(0);
+        nameET.requestFocus();
     }
+
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }
