@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -55,6 +56,7 @@ public class FragmentDownloadDate extends Fragment implements VisitorAdaptor.OnV
     private static final String URL_VISITORS = IPString.ip;
     List<VisitorInfo> visitorInfoList;
     RecyclerView recyclerView;
+    TextView emptyView;
     public FragmentDownloadDate() {
         // Required empty public constructor
     }
@@ -70,6 +72,7 @@ public class FragmentDownloadDate extends Fragment implements VisitorAdaptor.OnV
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         dateStart=v.findViewById(R.id.dateStart);
         dateStart.setInputType(InputType.TYPE_NULL);
+        emptyView=v.findViewById(R.id.list_empty);
         dateStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,8 +170,15 @@ public class FragmentDownloadDate extends Fragment implements VisitorAdaptor.OnV
                             }
                             //creating adapter object and setting it to recyclerview
                             VisitorAdaptor adapter = new VisitorAdaptor(visitorInfoList, FragmentDownloadDate.this);
-                            recyclerView.setAdapter(adapter);
-                        } catch (JSONException e) {
+                            if(adapter.getItemCount() == 0) {
+                                emptyView.setVisibility(View.VISIBLE);
+                                recyclerView.setVisibility(View.GONE);
+                            }
+                            else {
+                                emptyView.setVisibility(View.GONE);
+                                recyclerView.setVisibility(View.VISIBLE);
+                                recyclerView.setAdapter(adapter);
+                            }                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }

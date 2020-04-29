@@ -49,6 +49,17 @@
             android:id="@+id/recyclerViewdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/list_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
+            android:fontFamily="serif"
+            android:text="No appointments to display"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </FrameLayout>
