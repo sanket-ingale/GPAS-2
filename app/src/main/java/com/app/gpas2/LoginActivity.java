@@ -3,11 +3,14 @@ package com.app.gpas2;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -28,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText username, password;
     Button login;
-    private String server_url_insert=IPString.loginString;
+    private String server_url_insert = IPString.loginString;
     SharedPreferences sp;
     AlertDialog alertDialog;
 //    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -44,9 +47,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        username =  findViewById(R.id.login_et_un);
-        password =findViewById(R.id.login_et_pass);
-        login =  findViewById(R.id.btn_login_login);
+        username = findViewById(R.id.login_et_un);
+        password = findViewById(R.id.login_et_pass);
+        login = findViewById(R.id.btn_login_login);
         sp = getSharedPreferences("login", MODE_PRIVATE);
         alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle("Login Status");
@@ -61,24 +64,72 @@ public class LoginActivity extends AppCompatActivity {
 
     public void login(View view) {
         try {
-            submitData();
+            String sUsername = username.getText().toString();
+            String sPassword = password.getText().toString();
+            String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+            if (checkInternetConnection()) {
+
+                if (TextUtils.isEmpty(sUsername)) {
+                    Toast.makeText(getApplicationContext(), "Enter Email", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+
+                    if (!sUsername.matches(emailPattern)) {
+                        Toast.makeText(getApplicationContext(), "Please provide a valid Email address", Toast.LENGTH_SHORT).show();
+                        return;
+                    } else {
+
+                        if (TextUtils.isEmpty(sPassword)) {
+                            Toast.makeText(getApplicationContext(), "Enter a valid Password", Toast.LENGTH_SHORT).show();
+                            return;
+                        } else {
+                            submitData();
+                        }
+                    }
+
+                }
+
+            } else {
+                Toast.makeText(getApplicationContext(), "Check your internet connection", Toast.LENGTH_SHORT).show();
+            }
+
+
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }
-    private void submitData() throws UnsupportedEncodingException {
-        String sUsername = URLEncoder.encode(username.getText().toString(),"UTF8");
-        String sPassword = URLEncoder.encode(password.getText().toString(),"UTF8");
 
-        String url=server_url_insert+ "?username="+sUsername+"&password="+sPassword+"";
+    public boolean checkInternetConnection() {
+        // get Connectivity Manager object to check connection
+        ConnectivityManager connec = (ConnectivityManager) getSystemService(getBaseContext().CONNECTIVITY_SERVICE);
+
+        // Check for network connections
+        if (connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTED ||
+                connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTING ||
+                connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTING ||
+                connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTED) {
+            return true;
+        } else if (connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.DISCONNECTED ||
+                connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.DISCONNECTED) {
+            return false;
+        }
+        return false;
+    }
+
+    private void submitData() throws UnsupportedEncodingException {
+        String sUsername = URLEncoder.encode(username.getText().toString(), "UTF8");
+        String sPassword = URLEncoder.encode(password.getText().toString(), "UTF8");
+
+        String url = server_url_insert + "?username=" + sUsername + "&password=" + sPassword + "";
 //        Log.e("url", url);
-        StringRequest stringRequest= new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
 //                    Log.e("fghf", "onResponse: " );
-                    JSONObject jsonObject=new JSONObject(response);
-                    String result=jsonObject.getString("message");
+                    JSONObject jsonObject = new JSONObject(response);
+                    String result = jsonObject.getString("message");
 //                    Log.e("fghf", result);
                     String[] temp = result.split("#");
 //                    Log.e("result", result);
@@ -123,7 +174,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
         );
-        RequestQueue requestQueue= Volley.newRequestQueue(LoginActivity.this);
+        RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
         requestQueue.add(stringRequest);
     }
 

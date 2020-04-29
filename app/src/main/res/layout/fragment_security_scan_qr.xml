@@ -20,6 +20,7 @@
      android:layout_height="wrap_content"
      android:id="@+id/TextViewQr"
      android:text="Please Focus on QR code"
+     android:fontFamily="sans-serif-light"
      android:layout_marginTop="10dp"
      android:layout_gravity="center_horizontal"
      android:textSize="18sp"/>

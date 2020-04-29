@@ -18,7 +18,8 @@
             android:entries="@array/Status"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/bg_list"/>
+            android:fontFamily="sans-serif-thin"
+            android:background="@drawable/bg_textview"/>
 
         <Button
             android:id="@+id/button"
@@ -27,12 +28,15 @@
             android:background="@drawable/button_round_blue"
             android:padding="10dp"
             android:text="Download Data"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
+            android:fontFamily="sans-serif-light"
             android:textAlignment="center"
             android:layout_gravity="center"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView4"
             android:layout_width="match_parent"
+            android:fontFamily="sans-serif-thin"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/list_empty"
@@ -40,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
-            android:fontFamily="serif"
+            android:fontFamily="sans-serif-condensed-light"
             android:text="No appointments to display"
             android:textAlignment="center"
             android:textSize="18sp"

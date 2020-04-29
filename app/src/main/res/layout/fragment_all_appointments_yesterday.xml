@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:onClick="test1"
+        android:fontFamily="sans-serif-thin"
         tools:layout_editor_absoluteX="745dp"
         tools:layout_editor_absoluteY="-51dp" />
     <TextView
@@ -18,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="20dp"
-        android:fontFamily="serif"
+        android:fontFamily="sans-serif-condensed-light"
         android:text="No appointments to display"
         android:textAlignment="center"
         android:textSize="18sp"

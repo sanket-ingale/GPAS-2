@@ -12,6 +12,7 @@
         android:text="Visitor Card"
         android:textAlignment="center"
         android:textAllCaps="true"
+        android:fontFamily="sans-serif-condensed-light"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -19,6 +20,7 @@
         android:id="@+id/cardinfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-thin"
         android:paddingLeft="30dp"
         android:text="TextView"
         android:textAlignment="textStart"
@@ -37,6 +39,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-light"
             android:background="@drawable/bg_green"
             android:text="Accept" />
 
@@ -47,6 +50,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-light"
             android:background="@drawable/bg_blue"
             android:text="Reschedule" />
     </LinearLayout>

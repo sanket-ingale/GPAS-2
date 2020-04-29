@@ -1,9 +1,11 @@
 package com.app.gpas2;
 
 import android.app.ProgressDialog;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,11 +29,11 @@ import java.net.URLEncoder;
 
 
 public class FragmentAdminAddUser extends Fragment {
-EditText nameET,departmentET,emailET,passwordET;
-Spinner designationSP;
-Button addUser;
-String server_url_insert=IPString.UrlInsert;
-private ProgressDialog dialog;
+    EditText nameET, departmentET, emailET, passwordET;
+    Spinner designationSP;
+    Button addUser;
+    String server_url_insert = IPString.UrlInsert;
+    private ProgressDialog dialog;
 
     public FragmentAdminAddUser() {
         // Required empty public constructor
@@ -41,21 +43,76 @@ private ProgressDialog dialog;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v=inflater.inflate(R.layout.fragment_admin_add_user, container, false);
-        nameET=v.findViewById(R.id.name);
-        departmentET=v.findViewById(R.id.department);
-        emailET=v.findViewById(R.id.email);
-        passwordET=v.findViewById(R.id.password);
-        designationSP=v.findViewById(R.id.designation);
+        View v = inflater.inflate(R.layout.fragment_admin_add_user, container, false);
+        nameET = v.findViewById(R.id.name);
+        departmentET = v.findViewById(R.id.department);
+        emailET = v.findViewById(R.id.email);
+        passwordET = v.findViewById(R.id.password);
+        designationSP = v.findViewById(R.id.designation);
         dialog = new ProgressDialog(getContext());
 
-        addUser=v.findViewById(R.id.AddUser);
+        addUser = v.findViewById(R.id.AddUser);
 
         addUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    submitData();
+                    String sName = nameET.getText().toString();
+                    String sDepartment = departmentET.getText().toString();
+                    String sDesignation = String.valueOf(designationSP.getSelectedItem());
+                    String sEmail = emailET.getText().toString();
+                    String sPassword = passwordET.getText().toString();
+                    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+                    if (checkInternetConnection()) {
+
+                        if (TextUtils.isEmpty(sName)) {
+                            Toast.makeText(getContext(), "Enter Name", Toast.LENGTH_SHORT).show();
+                            return;
+                        } else {
+
+                            if (TextUtils.isEmpty(sDepartment)) {
+                                Toast.makeText(getContext(), "Enter Department", Toast.LENGTH_SHORT).show();
+                                return;
+                            } else {
+
+                                if (TextUtils.isEmpty(sDesignation)) {
+                                    Toast.makeText(getContext(), "Enter Designation", Toast.LENGTH_SHORT).show();
+                                    return;
+                                } else {
+                                    if (TextUtils.isEmpty(sEmail)) {
+                                        Toast.makeText(getContext(), "Enter Email", Toast.LENGTH_SHORT).show();
+                                        return;
+                                    } else {
+
+                                        if (!sEmail.matches(emailPattern)) {
+                                            Toast.makeText(getContext(), "Please provide a valid Email address", Toast.LENGTH_SHORT).show();
+                                            return;
+                                        } else {
+
+                                            if (TextUtils.isEmpty(sPassword)) {
+                                                Toast.makeText(getContext(), "Enter a Password", Toast.LENGTH_SHORT).show();
+                                                return;
+                                            } else {
+                                                if (sPassword.length()<8) {
+                                                    Toast.makeText(getContext(), "Password should contain at least 8 characters", Toast.LENGTH_SHORT).show();
+                                                    return;
+                                                } else {
+                                                    submitData();
+                                                }
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+
+                    } else {
+                        Toast.makeText(getContext(), "Check your internet connection", Toast.LENGTH_SHORT).show();
+                    }
+
+
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
@@ -63,49 +120,66 @@ private ProgressDialog dialog;
         });
         return v;
     }
+
+    public boolean checkInternetConnection() {
+        // get Connectivity Manager object to check connection
+        ConnectivityManager connec = (ConnectivityManager) getContext().getSystemService(getContext().CONNECTIVITY_SERVICE);
+
+        // Check for network connections
+        if (connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTED ||
+                connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.CONNECTING ||
+                connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTING ||
+                connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.CONNECTED) {
+            return true;
+        } else if (connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.DISCONNECTED ||
+                connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.DISCONNECTED) {
+            return false;
+        }
+        return false;
+    }
+
     private void submitData() throws UnsupportedEncodingException {
 
         dialog.setTitle("Adding User");
         dialog.setMessage("Please wait ...");
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
-        String sName= URLEncoder.encode(nameET.getText().toString(),"UTF8");
-        String sDepartment= URLEncoder.encode(departmentET.getText().toString(),"UTF8");
-        String sDesignation= URLEncoder.encode(String.valueOf(designationSP.getSelectedItem()),"UTF8");
-        String sEmail= URLEncoder.encode(emailET.getText().toString(),"UTF8");
-        String sPassword= URLEncoder.encode(passwordET.getText().toString(),"UTF8");
+        String sName = URLEncoder.encode(nameET.getText().toString(), "UTF8");
+        String sDepartment = URLEncoder.encode(departmentET.getText().toString(), "UTF8");
+        String sDesignation = URLEncoder.encode(String.valueOf(designationSP.getSelectedItem()), "UTF8");
+        String sEmail = URLEncoder.encode(emailET.getText().toString(), "UTF8");
+        String sPassword = URLEncoder.encode(passwordET.getText().toString(), "UTF8");
 
-        String url=server_url_insert+ "?name="+sName+"&department="+sDepartment+"&designation="+sDesignation+"&email="+sEmail+"&password="+sPassword+"";
-        StringRequest stringRequest= new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        String url = server_url_insert + "?name=" + sName + "&department=" + sDepartment + "&designation=" + sDesignation + "&email=" + sEmail + "&password=" + sPassword + "";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
-                    JSONObject jsonObject=new JSONObject(response);
-                    if(jsonObject.getString("message").equals("success")) {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getString("message").equals("success")) {
                         dialog.dismiss();
-                        Toast.makeText(getActivity(),"User added successfully!!" , Toast.LENGTH_LONG).show();
-                    }
-                    else{
+                        Toast.makeText(getActivity(), "User added successfully!!", Toast.LENGTH_LONG).show();
+                    } else {
                         dialog.dismiss();
-                        Toast.makeText(getActivity(),"Something went wrong!!" , Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "Something went wrong!!", Toast.LENGTH_LONG).show();
 
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                     dialog.dismiss();
-                    Toast.makeText(getActivity(),"e"+e.toString(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "e" + e.toString(), Toast.LENGTH_LONG).show();
 
                 }
             }
         }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        dialog.dismiss();
-                        Toast.makeText(getActivity(),"err"+error.toString(),Toast.LENGTH_LONG).show();
-                    }
-                }
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                dialog.dismiss();
+                Toast.makeText(getActivity(), "err" + error.toString(), Toast.LENGTH_LONG).show();
+            }
+        }
         );
-        RequestQueue requestQueue= Volley.newRequestQueue(getContext());
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
         nameET.setText("");
         emailET.setText("");

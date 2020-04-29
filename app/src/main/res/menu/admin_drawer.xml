@@ -9,10 +9,17 @@
             android:id="@+id/drawer_admin_home"
             android:title="Home" />
 
-        <item
-            android:id="@+id/drawer_admin_add_user"
-            android:title="Add user" />
+        <item android:title="Appointments">
 
+            <menu>
+                <item
+                    android:id="@+id/drawer_admin_add_user"
+                    android:title="     Add user" />
+                <item
+                    android:id="@+id/drawer_admin_view_user"
+                    android:title="     View user" />
+            </menu>
+        </item>
         <item android:title="Appointments">
 
             <menu>

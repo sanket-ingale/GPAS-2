@@ -13,6 +13,7 @@
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textSize="30sp"
+        android:fontFamily="sans-serif-condensed-light"
         android:textStyle="bold" />
 
     <TextView
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"
         android:text="TextView"
+        android:fontFamily="sans-serif-thin"
         android:textAlignment="textStart"
         android:textSize="18sp" />
 

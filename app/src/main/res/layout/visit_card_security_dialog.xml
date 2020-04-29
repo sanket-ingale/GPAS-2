@@ -13,6 +13,7 @@
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textSize="30sp"
+        android:fontFamily="sans-serif-condensed-light"
         android:textStyle="bold" />
 
     <TextView
@@ -21,6 +22,8 @@
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"
         android:text="TextView"
+
+        android:fontFamily="sans-serif-thin"
         android:textAlignment="textStart"
         android:textSize="18sp" />
     <LinearLayout
@@ -35,9 +38,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:textColor="#FFFFFF"
             android:background="@drawable/bg_green"
-            android:text="Campus Entry" />
+            android:fontFamily="sans-serif-light"
+            android:text="Campus Entry"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/endMeet"
@@ -46,6 +50,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-light"
             android:background="@drawable/bg_blue"
             android:text="Campus Exit" />
     </LinearLayout>

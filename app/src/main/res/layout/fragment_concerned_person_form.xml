@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="20sp"
+        android:layout_margin="10sp"
         android:orientation="vertical"
         android:paddingBottom="20sp"
         >
@@ -20,7 +20,7 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="serif"
+            android:fontFamily="sans-serif-medium"
             android:padding="10dp"
             android:text="Add Visitor Appointment"
             android:textAlignment="center"
@@ -35,8 +35,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
-                android:background="@drawable/bg_list"
+                android:background="@drawable/bg_textview"
                 android:ems="10"
+                android:fontFamily="sans-serif-thin"
                 android:hint="Enter Name"
                 android:inputType="textPersonName" />
         </android.support.design.widget.TextInputLayout>
@@ -50,11 +51,13 @@
 
             <EditText
                 android:id="@+id/email"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
-                android:background="@drawable/bg_list"
+                android:background="@drawable/bg_textview"
                 android:ems="10"
+                android:fontFamily="sans-serif-thin"
                 android:hint="Enter Email"
                 android:inputType="textEmailAddress" />
         </android.support.design.widget.TextInputLayout>
@@ -68,15 +71,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
-                android:background="@drawable/bg_list"
+                android:background="@drawable/bg_textview"
                 android:ems="10"
+                android:fontFamily="sans-serif-thin"
                 android:gravity="start"
                 android:hint="Enter Address"
+                android:inputType="textMultiLine"
                 android:lines="8"
                 android:minLines="2"
-                android:scrollbars="vertical"
-                android:inputType="textMultiLine"
-                />
+                android:scrollbars="vertical" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -89,8 +92,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
-                android:background="@drawable/bg_list"
+                android:background="@drawable/bg_textview"
                 android:ems="10"
+                android:fontFamily="sans-serif-thin"
                 android:hint="Enter contact number"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
@@ -103,8 +107,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
-                android:background="@drawable/bg_list"
+                android:background="@drawable/bg_textview"
                 android:ems="10"
+                android:fontFamily="sans-serif-thin"
                 android:hint="Enter vehicle number"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
@@ -117,8 +122,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
-                android:background="@drawable/bg_list"
+                android:background="@drawable/bg_textview"
                 android:ems="10"
+                android:fontFamily="sans-serif-thin"
                 android:hint="Enter organisation"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
@@ -127,45 +133,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
-            android:background="@drawable/bg_list"/>
+            android:fontFamily="sans-serif-thin"
+            android:background="@drawable/bg_textview"/>
 
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
                 android:id="@+id/intimadte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/bg_list"
+                android:background="@drawable/bg_textview"
                 android:ems="10"
+                android:fontFamily="sans-serif-thin"
                 android:hint="Enter intimation Date" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
                 android:id="@+id/visitdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/bg_list"
+                android:background="@drawable/bg_textview"
                 android:ems="10"
+                android:fontFamily="sans-serif-thin"
                 android:hint="Enter Visit Date" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <EditText
                 android:id="@+id/visitTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/bg_list"
+                android:background="@drawable/bg_textview"
                 android:ems="10"
+                android:fontFamily="sans-serif-thin"
                 android:hint="Enter Visit Time  " />
         </android.support.design.widget.TextInputLayout>
 
@@ -179,27 +192,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
-                android:background="@drawable/bg_list"
+                android:background="@drawable/bg_textview"
                 android:ems="10"
+                android:fontFamily="sans-serif-thin"
                 android:gravity="start"
-                android:hint="Enter purpose of meeing"
+                android:hint="Enter purpose of meeting"
+                android:inputType="textMultiLine"
                 android:lines="8"
                 android:minLines="2"
-                android:scrollbars="vertical"
-                android:inputType="textMultiLine"
-                />
+                android:scrollbars="vertical" />
 
         </android.support.design.widget.TextInputLayout>
-        <Button
-            android:id="@+id/addVisit"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_round_blue"
-            android:padding="10dp"
-            android:text="Submit"
-            android:textColor="@android:color/background_light" />
+
     </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/addVisit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_round_blue"
+        android:padding="10dp"
+        android:text="Submit"
+        android:textColor="@android:color/background_light" />
 </FrameLayout>

@@ -19,6 +19,7 @@
             android:text="Concerned Person Panel"
             android:textAlignment="textStart"
             android:textColor="@android:color/background_light"
+            android:fontFamily="sans-serif-light"
             android:textSize="24sp"
             android:id="@+id/concerned_person_toolbar_title"/>
 

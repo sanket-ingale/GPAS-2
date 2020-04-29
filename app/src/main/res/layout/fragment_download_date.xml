@@ -20,7 +20,8 @@
                 android:layout_width="188dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/bg_list"
+                android:background="@drawable/bg_textview"
+                android:fontFamily="sans-serif-thin"
                 android:ems="10"
                 android:hint="Enter Date" />
 
@@ -30,8 +31,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Enter Date"
+                android:fontFamily="sans-serif-thin"
                 android:layout_margin="10dp"
-                android:background="@drawable/bg_list"/>
+                android:background="@drawable/bg_textview"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,12 +44,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Download Data"
+            android:fontFamily="sans-serif-light"
             android:padding="10dp"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:background="@drawable/button_round_blue"/>
         </LinearLayout>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerViewdd"
             android:layout_width="match_parent"
+            android:fontFamily="sans-serif-light"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/list_empty"
@@ -55,7 +60,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
-            android:fontFamily="serif"
+
+            android:fontFamily="sans-serif-condensed-light"
             android:text="No appointments to display"
             android:textAlignment="center"
             android:textSize="18sp"
