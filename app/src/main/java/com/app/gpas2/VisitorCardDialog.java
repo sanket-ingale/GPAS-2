@@ -83,7 +83,7 @@ this.visitorInfo=v;
                 }
 
                 String url=server_url_insert+ "?type=accept"+"&n="+visitorInfo.getId()+"&aname="+sName+"";
-
+                Log.e("sd", "onClick: "+url );
                 StringRequest stringRequest= new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

@@ -303,9 +303,9 @@ public class FragmentConcernedPersonForm extends Fragment {
         String sOrg = URLEncoder.encode(org.getText().toString(), "UTF8");
         String sConcernPerson = URLEncoder.encode(spinner1.getSelectedItem().toString(), "UTF8");
         String sIntim = URLEncoder.encode(intimDate.getText().toString(), "UTF8");
-        String sVisitDate = URLEncoder.encode(intimDate.getText().toString(), "UTF8");
-        String sVisitTime = URLEncoder.encode(intimDate.getText().toString(), "UTF8");
-        String sPurpose = URLEncoder.encode(intimDate.getText().toString(), "UTF8");
+        String sVisitDate = URLEncoder.encode(visitDate.getText().toString(), "UTF8");
+        String sVisitTime = URLEncoder.encode(visitTime.getText().toString(), "UTF8");
+        String sPurpose = URLEncoder.encode(purpose.getText().toString(), "UTF8");
 
         String url = server_url_insert + "?name=" + sName + "&email=" + sEmail + "&address=" + sAddress + "&contact=" + sContact
                 + "&vehicle=" + sVehicle + "&org=" + sOrg + "&concernp=" + sConcernPerson + "&intimdate=" + sIntim
