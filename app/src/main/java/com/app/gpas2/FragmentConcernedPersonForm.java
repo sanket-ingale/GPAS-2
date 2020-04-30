@@ -12,6 +12,7 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -36,9 +37,12 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class FragmentConcernedPersonForm extends Fragment {
     private static final String URL_VISITORS = IPString.ip;
@@ -49,8 +53,9 @@ public class FragmentConcernedPersonForm extends Fragment {
     List<String> personList;
     EditText visitDate, visitTime, intimDate;
     DatePickerDialog picker;
-    Button submit;
+    Button submit, resetForm;
     EditText name, email, address, contact, vehicle, org, purpose;
+    final Calendar myCalendar = Calendar.getInstance(TimeZone.getDefault());
 
     public FragmentConcernedPersonForm() {
         // Required empty public constructor
@@ -62,21 +67,24 @@ public class FragmentConcernedPersonForm extends Fragment {
         View v = inflater.inflate(R.layout.fragment_concerned_person_form, container, false);
         spinner1 = v.findViewById(R.id.spinner1);
         loadPersons();
+
+        resetForm = v.findViewById(R.id.resetForm);
+
         name = v.findViewById(R.id.name);
         email = v.findViewById(R.id.email);
         address = v.findViewById(R.id.address);
         contact = v.findViewById(R.id.contact);
         vehicle = v.findViewById(R.id.vehicle);
         org = v.findViewById(R.id.org);
-        name = v.findViewById(R.id.name);
         purpose = v.findViewById(R.id.purpose);
+
         submit = v.findViewById(R.id.addVisit);
         dialog = new ProgressDialog(getContext());
         visitDate = v.findViewById(R.id.visitdate);
         visitDate.setInputType(InputType.TYPE_NULL);
-        visitDate.setOnClickListener(new View.OnClickListener() {
+        visitDate.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onTouch(View v, MotionEvent event) {
                 final Calendar cldr = Calendar.getInstance();
                 int day = cldr.get(Calendar.DAY_OF_MONTH);
                 int month = cldr.get(Calendar.MONTH);
@@ -102,13 +110,38 @@ public class FragmentConcernedPersonForm extends Fragment {
                             }
                         }, year, month, day);
                 picker.show();
+                return true;
             }
         });
+
+//        final DatePickerDialog.OnDateSetListener date = new
+//                DatePickerDialog.OnDateSetListener() {
+//                    @Override
+//                    public void onDateSet(DatePicker view, int year, int monthOfYear,
+//                                          int dayOfMonth) {
+//                        myCalendar.set(Calendar.YEAR, year);
+//                        myCalendar.set(Calendar.MONTH, monthOfYear);
+//                        myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+//                        updateLabel();
+//                    }
+//                };
+//        visitDate.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+//                    new DatePickerDialog(getContext(), date, myCalendar
+//                            .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+//                            myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+//                }
+//                return true;
+//            }
+//        });
+
         intimDate = v.findViewById(R.id.intimadte);
         intimDate.setInputType(InputType.TYPE_NULL);
-        intimDate.setOnClickListener(new View.OnClickListener() {
+        intimDate.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onTouch(View v, MotionEvent event) {
                 final Calendar cldr = Calendar.getInstance();
                 int day = cldr.get(Calendar.DAY_OF_MONTH);
                 int month = cldr.get(Calendar.MONTH);
@@ -135,13 +168,15 @@ public class FragmentConcernedPersonForm extends Fragment {
                             }
                         }, year, month, day);
                 picker.show();
+                return true;
             }
         });
+
         visitTime = v.findViewById(R.id.visitTime);
         visitTime.setInputType(InputType.TYPE_NULL);
-        visitTime.setOnClickListener(new View.OnClickListener() {
+        visitTime.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onTouch(View v, MotionEvent event) {
                 // Get Current Time
                 final Calendar c = Calendar.getInstance();
                 int mHour = c.get(Calendar.HOUR_OF_DAY);
@@ -160,6 +195,25 @@ public class FragmentConcernedPersonForm extends Fragment {
                             }
                         }, mHour, mMinute, false);
                 timePickerDialog.show();
+                return true;
+            }
+        });
+
+
+        resetForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                name.setText("");
+                email.setText("");
+                address.setText("");
+                contact.setText("");
+                vehicle.setText("");
+                org.setText("");
+                purpose.setText("");
+                visitDate.setText("");
+                visitTime.setText("");
+                intimDate.setText("");
+
             }
         });
 
@@ -270,6 +324,14 @@ public class FragmentConcernedPersonForm extends Fragment {
         });
         return v;
     }
+
+//    private void updateLabel() {
+//
+//        String myFormat = "MM/dd/yy"; //In which you need put here
+//        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+//
+//        visitDate.setText(sdf.format(myCalendar.getTime()));
+//    }
 
 
     public boolean checkInternetConnection() {

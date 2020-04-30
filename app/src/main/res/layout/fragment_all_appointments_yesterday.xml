@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:onClick="test1"
         android:fontFamily="sans-serif-thin"
+        android:padding="10sp"
         tools:layout_editor_absoluteX="745dp"
         tools:layout_editor_absoluteY="-51dp" />
     <TextView

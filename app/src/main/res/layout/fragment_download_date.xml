@@ -20,7 +20,7 @@
                 android:layout_width="188dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/bg_textview"
+
                 android:fontFamily="sans-serif-thin"
                 android:ems="10"
                 android:hint="Enter Date" />
@@ -32,8 +32,7 @@
                 android:ems="10"
                 android:hint="Enter Date"
                 android:fontFamily="sans-serif-thin"
-                android:layout_margin="10dp"
-                android:background="@drawable/bg_textview"/>
+                android:layout_margin="10dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,6 +52,7 @@
             android:id="@+id/recyclerViewdd"
             android:layout_width="match_parent"
             android:fontFamily="sans-serif-light"
+            android:padding="10sp"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/list_empty"

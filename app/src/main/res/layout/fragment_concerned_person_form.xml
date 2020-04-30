@@ -4,218 +4,250 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FragmentConcernedPersonForm">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10sp"
-        android:orientation="vertical"
-        android:paddingBottom="20sp"
-        >
 
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:padding="10dp"
-            android:text="Add Visitor Appointment"
-            android:textAlignment="center"
-            android:textStyle="bold" />
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10sp"
-                android:background="@drawable/bg_textview"
-                android:ems="10"
-                android:fontFamily="sans-serif-thin"
-                android:hint="Enter Name"
-                android:inputType="textPersonName" />
-        </android.support.design.widget.TextInputLayout>
-
-
-
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/email"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10sp"
-                android:background="@drawable/bg_textview"
-                android:ems="10"
-                android:fontFamily="sans-serif-thin"
-                android:hint="Enter Email"
-                android:inputType="textEmailAddress" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10sp"
-                android:background="@drawable/bg_textview"
-                android:ems="10"
-                android:fontFamily="sans-serif-thin"
-                android:gravity="start"
-                android:hint="Enter Address"
-                android:inputType="textMultiLine"
-                android:lines="8"
-                android:minLines="2"
-                android:scrollbars="vertical" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/contact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10sp"
-                android:background="@drawable/bg_textview"
-                android:ems="10"
-                android:fontFamily="sans-serif-thin"
-                android:hint="Enter contact number"
-                android:inputType="text" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/vehicle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10sp"
-                android:background="@drawable/bg_textview"
-                android:ems="10"
-                android:fontFamily="sans-serif-thin"
-                android:hint="Enter vehicle number"
-                android:inputType="text" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/org"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10sp"
-                android:background="@drawable/bg_textview"
-                android:ems="10"
-                android:fontFamily="sans-serif-thin"
-                android:hint="Enter organisation"
-                android:inputType="text" />
-        </android.support.design.widget.TextInputLayout>
-        <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="10sp"
-            android:fontFamily="sans-serif-thin"
-            android:background="@drawable/bg_textview"/>
+            android:orientation="vertical"
+            android:paddingBottom="20sp">
 
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/intimadte"
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/bg_textview"
-                android:ems="10"
-                android:fontFamily="sans-serif-thin"
-                android:hint="Enter intimation Date" />
-        </android.support.design.widget.TextInputLayout>
+                android:fontFamily="sans-serif-medium"
+                android:padding="10dp"
+                android:text="Add Visitor Appointment"
+                android:textAlignment="center"
+                android:textStyle="bold" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/visitdate"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/bg_textview"
-                android:ems="10"
-                android:fontFamily="sans-serif-thin"
-                android:hint="Enter Visit Date" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_height="wrap_content">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
 
-            <EditText
-                android:id="@+id/visitTime"
+                    android:ems="10"
+                    android:fontFamily="sans-serif-thin"
+                    android:hint="Enter Name"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/bg_textview"
-                android:ems="10"
-                android:fontFamily="sans-serif-thin"
-                android:hint="Enter Visit Time  " />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_height="wrap_content">
 
+                <EditText
+                    android:id="@+id/email"
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
 
-            <EditText
-                android:id="@+id/purpose"
+                    android:ems="10"
+                    android:fontFamily="sans-serif-thin"
+                    android:hint="Enter Email"
+                    android:inputType="textEmailAddress" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+
+                    android:ems="10"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="start"
+                    android:hint="Enter Address"
+                    android:inputType="textMultiLine"
+                    android:lines="8"
+                    android:minLines="1"
+                    android:scrollbars="vertical" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+
+                    android:ems="10"
+                    android:fontFamily="sans-serif-thin"
+                    android:hint="Enter Contact Number"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/vehicle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+
+                    android:ems="10"
+                    android:fontFamily="sans-serif-thin"
+                    android:hint="Enter Vehicle Number"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/org"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+
+                    android:ems="10"
+                    android:fontFamily="sans-serif-thin"
+                    android:hint="Enter Organisation"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/spinner1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
-                android:background="@drawable/bg_textview"
-                android:ems="10"
-                android:fontFamily="sans-serif-thin"
-                android:gravity="start"
-                android:hint="Enter purpose of meeting"
-                android:inputType="textMultiLine"
-                android:lines="8"
-                android:minLines="2"
-                android:scrollbars="vertical" />
+                android:fontFamily="sans-serif-thin" />
 
-        </android.support.design.widget.TextInputLayout>
 
-    </LinearLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/intimadte"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+
+                    android:ems="10"
+                    android:fontFamily="sans-serif-thin"
+                    android:hint="Enter Intimation Date" />
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/visitdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+
+                        android:ems="8"
+                        android:fontFamily="sans-serif-thin"
+                        android:hint="Enter Visit Date" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/visitTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+
+                        android:ems="8"
+                        android:fontFamily="sans-serif-thin"
+                        android:hint="Enter Visit Time  " />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/purpose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
+
+                    android:ems="10"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="start"
+                    android:hint="Enter Purpose of Meeting"
+                    android:inputType="textMultiLine"
+                    android:lines="8"
+                    android:minLines="1"
+                    android:scrollbars="vertical" />
+
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/addVisit"
-        android:layout_width="wrap_content"
+
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="20dp"
-        android:background="@drawable/button_round_blue"
-        android:padding="10dp"
-        android:text="Submit"
-        android:textColor="@android:color/background_light" />
+        android:layout_gravity="bottom">
+
+        <Button
+            android:id="@+id/resetForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginLeft="60sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/bg_grey"
+            android:fontFamily="sans-serif-light"
+            android:padding="10dp"
+            android:text="Reset"
+            android:textColor="@android:color/background_light" />
+
+        <Button
+            android:id="@+id/addVisit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="20sp"
+            android:layout_marginRight="60sp"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/button_round_blue"
+            android:fontFamily="sans-serif-light"
+            android:padding="10dp"
+            android:text="Submit"
+            android:textColor="@android:color/background_light" />
+
+    </FrameLayout>
 </FrameLayout>

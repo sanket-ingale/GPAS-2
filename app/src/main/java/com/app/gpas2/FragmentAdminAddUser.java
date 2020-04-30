@@ -32,7 +32,7 @@ import java.net.URLEncoder;
 public class FragmentAdminAddUser extends Fragment {
     EditText nameET, departmentET, emailET, passwordET;
     Spinner designationSP;
-    Button addUser;
+    Button addUser, userReset;
     String server_url_insert = IPString.UrlInsert;
     private ProgressDialog dialog;
 
@@ -53,6 +53,19 @@ public class FragmentAdminAddUser extends Fragment {
         dialog = new ProgressDialog(getContext());
 
         addUser = v.findViewById(R.id.AddUser);
+
+        userReset = v.findViewById(R.id.resetUser);
+
+        userReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nameET.setText("");
+                departmentET.setText("");
+                emailET.setText("");
+                passwordET.setText("");
+
+            }
+        });
 
         addUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +108,7 @@ public class FragmentAdminAddUser extends Fragment {
                                                 Toast.makeText(getContext(), "Enter a Password", Toast.LENGTH_SHORT).show();
                                                 return;
                                             } else {
-                                                if (sPassword.length()<8) {
+                                                if (sPassword.length() < 8) {
                                                     Toast.makeText(getContext(), "Password should contain at least 8 characters", Toast.LENGTH_SHORT).show();
                                                     return;
                                                 } else {
@@ -121,6 +134,7 @@ public class FragmentAdminAddUser extends Fragment {
         });
         return v;
     }
+
 
     public boolean checkInternetConnection() {
         // get Connectivity Manager object to check connection
