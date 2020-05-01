@@ -1,5 +1,6 @@
 package com.app.gpas2;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
@@ -55,12 +56,13 @@ public class FragmentConcernedPersonForm extends Fragment {
     DatePickerDialog picker;
     Button submit, resetForm;
     EditText name, email, address, contact, vehicle, org, purpose;
-    final Calendar myCalendar = Calendar.getInstance(TimeZone.getDefault());
+//    final Calendar myCalendar = Calendar.getInstance(TimeZone.getDefault());
 
     public FragmentConcernedPersonForm() {
         // Required empty public constructor
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -270,7 +272,7 @@ public class FragmentConcernedPersonForm extends Fragment {
                                                 } else {
 
                                                     if (!sVehicle.matches(vehiclePattern)) {
-                                                        Toast.makeText(getContext(), "Please provide a valid vehicle no.", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(getContext(), "Please provide a vehicle number in MH20EK2019 format", Toast.LENGTH_SHORT).show();
                                                         return;
                                                     } else {
                                                         if (TextUtils.isEmpty(sOrg)) {

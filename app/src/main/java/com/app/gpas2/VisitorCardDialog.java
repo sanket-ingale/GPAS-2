@@ -61,7 +61,7 @@ this.visitorInfo=v;
         dialog = new ProgressDialog(getContext());
 
 
-        if(visitorInfo.getStatus().equals("Approved")){
+        if(!visitorInfo.getStatus().equals("Pending")){
             accept.setEnabled(false);
             reschedule.setEnabled(false);
 

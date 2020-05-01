@@ -113,13 +113,14 @@ List<VisitorInfo> visitorInfoList;
 
 //                            textView.setText(qrcodes.valueAt(0).displayValue+" " + a);
                             if(a != 0){
+                                cameraSource.stop();
                                 loadVisitors(a);
 
                             }
 
                         }
                     });
-                    cameraSource.stop();
+//                    cameraSource.stop();
 
                 }
 

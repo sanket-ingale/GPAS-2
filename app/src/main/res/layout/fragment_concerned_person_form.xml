@@ -39,7 +39,7 @@
 
                     android:ems="10"
                     android:fontFamily="sans-serif-thin"
-                    android:hint="Enter Name"
+                    android:hint="Enter visitor's Name"
                     android:inputType="textPersonName" />
             </android.support.design.widget.TextInputLayout>
 
@@ -57,7 +57,7 @@
 
                     android:ems="10"
                     android:fontFamily="sans-serif-thin"
-                    android:hint="Enter Email"
+                    android:hint="Enter visitor's email"
                     android:inputType="textEmailAddress" />
             </android.support.design.widget.TextInputLayout>
 
@@ -74,7 +74,7 @@
                     android:ems="10"
                     android:fontFamily="sans-serif-thin"
                     android:gravity="start"
-                    android:hint="Enter Address"
+                    android:hint="Enter visitor's address"
                     android:inputType="textMultiLine"
                     android:lines="8"
                     android:minLines="1"
@@ -94,7 +94,7 @@
 
                     android:ems="10"
                     android:fontFamily="sans-serif-thin"
-                    android:hint="Enter Contact Number"
+                    android:hint="Enter visitor's contact number"
                     android:inputType="text" />
             </android.support.design.widget.TextInputLayout>
 
@@ -110,7 +110,7 @@
 
                     android:ems="10"
                     android:fontFamily="sans-serif-thin"
-                    android:hint="Enter Vehicle Number"
+                    android:hint="Enter visitor's vehicle number"
                     android:inputType="text" />
             </android.support.design.widget.TextInputLayout>
 
@@ -126,7 +126,7 @@
 
                     android:ems="10"
                     android:fontFamily="sans-serif-thin"
-                    android:hint="Enter Organisation"
+                    android:hint="Enter visitor's organisation"
                     android:inputType="text" />
             </android.support.design.widget.TextInputLayout>
 

@@ -50,10 +50,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:textColor="#FFFFFF"
-            android:fontFamily="sans-serif-light"
             android:background="@drawable/bg_blue"
-            android:text="Reschedule" />
+            android:fontFamily="sans-serif-light"
+            android:text="Reject"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </LinearLayout>

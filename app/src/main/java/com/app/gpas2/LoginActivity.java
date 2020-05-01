@@ -55,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         sp = getSharedPreferences("login", MODE_PRIVATE);
         alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle("Login Status");
+        dialog= new ProgressDialog(this);
 //        mProLogin = new ProgressDialog(this);
 //
 //        mAuth = FirebaseAuth.getInstance();
