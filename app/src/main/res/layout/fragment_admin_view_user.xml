@@ -9,12 +9,12 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
-        <Spinner
-            android:id="@+id/spinnerViewUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif-thin" />
+<!--        <Spinner-->
+<!--            android:id="@+id/spinnerViewUser"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:fontFamily="sans-serif-thin" />-->
 
 
         <android.support.v7.widget.RecyclerView
