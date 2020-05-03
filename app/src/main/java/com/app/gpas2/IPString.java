@@ -18,4 +18,5 @@ public class IPString {
 //    public static String UrlAddVisit = "http://freshtrop.000webhostapp.com/project/android/addVisit.php";
 //    public static String UrlButtonScripts = "http://freshtrop.000webhostapp.com/project/android/buttonscripts.php";
 //    public static String UrlUsers = "http://freshtrop.000webhostapp.com/project/android/loadUsers.php";
+
 }

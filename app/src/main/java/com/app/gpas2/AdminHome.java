@@ -131,10 +131,6 @@ public class AdminHome extends AppCompatActivity implements NavigationView.OnNav
                 break;
 
             //download submenu end
-
-
-
-
             case R.id.drawer_admin_about_us:
                 selectedFragment = new FragmentAboutUs();
                 break;
