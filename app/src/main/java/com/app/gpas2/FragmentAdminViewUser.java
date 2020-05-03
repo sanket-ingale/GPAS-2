@@ -161,6 +161,8 @@ public class FragmentAdminViewUser extends Fragment implements UserAdapter.OnUse
                                     JSONObject jsonObject=new JSONObject(response);
                                     if(jsonObject.getString("message").equals("success")) {
                                         mdialog.dismiss();
+                                        userInfoList = new ArrayList<>();
+                                        loadUsers();
                                         Toast.makeText(getActivity(),"User deleted" , Toast.LENGTH_LONG).show();
                                     }
                                     else{
@@ -198,9 +200,6 @@ public class FragmentAdminViewUser extends Fragment implements UserAdapter.OnUse
                         });
                         RequestQueue requestQueue= Volley.newRequestQueue(getContext());
                         requestQueue.add(stringRequest);
-
-
-//                        Toast.makeText(getContext(), "User deleted", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

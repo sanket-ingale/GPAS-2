@@ -91,6 +91,7 @@ this.visitorInfo=v;
                             JSONObject jsonObject=new JSONObject(response);
                             if(jsonObject.getString("message").equals("success")) {
                                 dialog.dismiss();
+
                                 Toast.makeText(getActivity(),"Request accepted successfully!!" , Toast.LENGTH_LONG).show();
                             }
                             else{
@@ -157,6 +158,7 @@ this.visitorInfo=v;
                             JSONObject jsonObject=new JSONObject(response);
                             if(jsonObject.getString("message").equals("success")) {
                                 dialog.dismiss();
+
                                 Toast.makeText(getActivity(),"Request rejected successfully!!" , Toast.LENGTH_LONG).show();
                             }
                             else{
