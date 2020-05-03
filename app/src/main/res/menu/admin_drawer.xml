@@ -9,7 +9,7 @@
             android:id="@+id/drawer_admin_home"
             android:title="Home" />
 
-        <item android:title="Appointments">
+        <item android:title="Manage Users">
 
             <menu>
                 <item

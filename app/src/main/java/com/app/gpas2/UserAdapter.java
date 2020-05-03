@@ -61,7 +61,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             userViewDept = itemView.findViewById(R.id.userViewDept);
             userViewEmail = itemView.findViewById(R.id.userViewEmail);
 
-            userDelete = itemView.findViewById(R.id.userViewEmail);
+            userDelete = itemView.findViewById(R.id.userDelete);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

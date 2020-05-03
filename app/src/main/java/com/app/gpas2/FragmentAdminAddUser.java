@@ -1,6 +1,7 @@
 package com.app.gpas2;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -173,7 +174,13 @@ public class FragmentAdminAddUser extends Fragment {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getString("message").equals("success")) {
                         dialog.dismiss();
+                        nameET.setText("");
+                        emailET.setText("");
+                        passwordET.setText("");
+                        departmentET.setText("");
+                        designationSP.setSelection(0);
                         Toast.makeText(getActivity(), "User added successfully!!", Toast.LENGTH_LONG).show();
+                        nameET.requestFocus();
                     } else {
                         dialog.dismiss();
                         Toast.makeText(getActivity(), "Something went wrong!!", Toast.LENGTH_LONG).show();
@@ -182,7 +189,7 @@ public class FragmentAdminAddUser extends Fragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                     dialog.dismiss();
-                    Toast.makeText(getActivity(), "e" + e.toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Something went wrong!!", Toast.LENGTH_LONG).show();
 
                 }
             }
@@ -190,7 +197,7 @@ public class FragmentAdminAddUser extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 dialog.dismiss();
-                Toast.makeText(getActivity(), "err" + error.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Something went wrong!!", Toast.LENGTH_LONG).show();
             }
         }
         );
@@ -212,12 +219,7 @@ public class FragmentAdminAddUser extends Fragment {
         });
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
-        nameET.setText("");
-        emailET.setText("");
-        passwordET.setText("");
-        departmentET.setText("");
-        designationSP.setSelection(0);
-        nameET.requestFocus();
+
     }
 
     public interface OnFragmentInteractionListener {
