@@ -1,16 +1,21 @@
 package com.app.gpas2;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -33,8 +38,9 @@ public class FragmentAdminViewUser extends Fragment implements UserAdapter.OnUse
     private static final String URL_VISITORS = IPString.UrlUsers;
     List<UserDetails> userInfoList;
     RecyclerView recyclerView;
-
+    Button deleteUser;
     TextView emptyView;
+
     public FragmentAdminViewUser() {
         // Required empty public constructor
     }
@@ -51,6 +57,16 @@ public class FragmentAdminViewUser extends Fragment implements UserAdapter.OnUse
         emptyView=v.findViewById(R.id.list_empty);
         userInfoList = new ArrayList<>();
         loadUsers();
+
+//        deleteUser = v.findViewById(R.id.userDelete);
+//
+//        deleteUser.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
         return v;
     }
 
@@ -111,6 +127,33 @@ public class FragmentAdminViewUser extends Fragment implements UserAdapter.OnUse
     public void onUserClick(int position) {
 
     }
+
+    @Override
+    public void onDeleteClick(int position) {
+        UserDetails userDetails = userInfoList.get(position);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+
+        builder.setMessage("Please confirm")
+                .setCancelable(false)
+                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+
+
+                        Toast.makeText(getContext(), "User deleted", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name

@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -42,15 +43,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public interface OnUserListener {
 
         void onUserClick(int position);
+        void onDeleteClick(int position);
 
     }
 
-    class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class UserViewHolder extends RecyclerView.ViewHolder {
 
         TextView userViewTitle, userViewDesig, userViewDept, userViewEmail;
+        Button userDelete;
         UserAdapter.OnUserListener onUserListener;
 
-        public UserViewHolder(View itemView, UserAdapter.OnUserListener onUserListener) {
+        public UserViewHolder(View itemView, final UserAdapter.OnUserListener onUserListener) {
             super(itemView);
 
             userViewTitle = itemView.findViewById(R.id.userViewTitle);
@@ -58,14 +61,33 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             userViewDept = itemView.findViewById(R.id.userViewDept);
             userViewEmail = itemView.findViewById(R.id.userViewEmail);
 
+            userDelete = itemView.findViewById(R.id.userViewEmail);
 
-            this.onUserListener = onUserListener;
-            itemView.setOnClickListener(this);
-        }
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onUserListener != null) {
+                        int pos = getAdapterPosition();
+                        if (pos != RecyclerView.NO_POSITION) {
+                            onUserListener.onUserClick(getAdapterPosition());
+                        }
+                    }
+                }
+            });
 
-        @Override
-        public void onClick(View v) {
-            onUserListener.onUserClick(getAdapterPosition());
+            userDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onUserListener != null) {
+                        int pos = getAdapterPosition();
+                        if (pos != RecyclerView.NO_POSITION) {
+                            onUserListener.onDeleteClick(getAdapterPosition());
+                        }
+                    }
+                }
+            });
+
+
         }
     }
 }
