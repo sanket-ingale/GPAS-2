@@ -182,7 +182,18 @@ public class FragmentAdminAddUser extends Fragment {
                         designationSP.setSelection(0);
                         Toast.makeText(getActivity(), "User added successfully!!", Toast.LENGTH_LONG).show();
                         nameET.requestFocus();
-                    } else {
+                    }
+                    else if(jsonObject.getString("message").equals("exist")){
+                        dialog.dismiss();
+                        nameET.setText("");
+                        emailET.setText("");
+                        passwordET.setText("");
+                        departmentET.setText("");
+                        designationSP.setSelection(0);
+                        Toast.makeText(getActivity(), "User already exist!!", Toast.LENGTH_LONG).show();
+                        nameET.requestFocus();
+                    }
+                    else {
                         dialog.dismiss();
                         Toast.makeText(getActivity(), "Something went wrong!!", Toast.LENGTH_LONG).show();
 
