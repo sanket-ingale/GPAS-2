@@ -33,5 +33,6 @@
     <string-array name="Status">
         <item>Approved</item>
         <item>Pending</item>
+        <item>Rejected</item>
     </string-array>
 </resources>
