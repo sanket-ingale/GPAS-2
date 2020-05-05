@@ -1,6 +1,8 @@
 package com.app.gpas2;
 
 import android.app.Dialog;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -101,7 +103,7 @@ this.visitorInfo=v;
                         } catch (JSONException e) {
                             e.printStackTrace();
                             dialog.dismiss();
-                            Toast.makeText(getActivity(),"e"+e.toString(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(),"Something went wrong!!" , Toast.LENGTH_LONG).show();
 
                         }
                     }
@@ -109,7 +111,7 @@ this.visitorInfo=v;
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         dialog.dismiss();
-                        Toast.makeText(getActivity(),"err"+error.toString(),Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(),"Something went wrong!!" , Toast.LENGTH_LONG).show();
                     }
                 }
                 );

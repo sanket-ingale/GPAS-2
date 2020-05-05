@@ -64,6 +64,7 @@ public class FragmentAdminAddUser extends Fragment {
                 departmentET.setText("");
                 emailET.setText("");
                 passwordET.setText("");
+                designationSP.setSelection(0);
 
             }
         });
