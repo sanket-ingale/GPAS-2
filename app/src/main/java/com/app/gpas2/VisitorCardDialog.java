@@ -44,9 +44,9 @@ public class VisitorCardDialog extends AppCompatDialogFragment {
     private ProgressDialog dialog;
 
 
-  public void getObject(VisitorInfo v){
-this.visitorInfo=v;
-  }
+    public void getObject(VisitorInfo v){
+        this.visitorInfo=v;
+    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -61,7 +61,6 @@ this.visitorInfo=v;
         Button accept= view.findViewById(R.id.accept);
         Button reschedule= view.findViewById(R.id.reschedule);
         dialog = new ProgressDialog(getContext());
-
 
         if(!visitorInfo.getStatus().equals("Pending")){
             accept.setEnabled(false);
@@ -242,6 +241,8 @@ this.visitorInfo=v;
                     " must implement VisitorCardDialogListener");
         }
     }
+
+
 
     public interface VisitorCardDialogListener {
         void applyTexts();
